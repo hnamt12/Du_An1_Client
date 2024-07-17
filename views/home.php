@@ -30,7 +30,6 @@
                     <div class="product-tab tab-style-3">
 
                         <!-- Nav danh mục sản phẩm  -->
-
                         <?php require_once PATH_VIEW . 'components/componentProduct/navDanhMuc.php' ?>
                         <!-- Nav danh mục sản phẩm  -->
 
