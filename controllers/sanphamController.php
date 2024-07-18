@@ -1,5 +1,4 @@
 <?php
-
 function showAllProducts(){
    $view = '/layouts/products/showAll' ; 
 
