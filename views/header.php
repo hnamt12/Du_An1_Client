@@ -39,10 +39,10 @@
                                         <!-- <a href="<?= BASE_URL ?>views\layouts\users\login-register.php">Đăng Nhập </a> -->
                                     </li>
                                     <li>
-                                        <a href="<?= BASE_URL ?>?act=user ">>My Account</a>
+                                        <a href="<?= BASE_URL ?>?act=user">Tài khoản</a>
                                     </li>
                                     <li>
-                                        <a href="cart.html">Shopping Cart</a>
+                                        <a href="index.php?act=giohang">Giỏ hàng</a>
                                     </li>
                                     <li>
                                         <a href="checkout.html">Check Out</a>
@@ -57,12 +57,6 @@
                                         <a href="compare.html">compare</a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="header-toolbar__item">
-                                <a href="#miniCart" class="mini-cart-btn toolbar-btn">
-                                    <i class="dl-icon-cart4"></i>
-                                    <sup class="mini-cart-count">2</sup>
-                                </a>
                             </li>
                             <li class="header-toolbar__item">
                                 <a href="#searchForm" class="search-btn toolbar-btn">

@@ -12,10 +12,22 @@ require_once "./commons/connect-db.php";
 require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
 
+$arrRouteNeedAuth = [
+    "giohang",
+    "giohang_add",
+    "giohang_delete",
+];
+
+if (empty($_SESSION["giohang"])) $_SESSION["giohang"] = [];
+
 // Điều hướng
 $act = $_GET["act"] ?? "/";
 $a = match ($act) {
     "/" => homeIndex(),
+
+    "giohang" => giohangList(),
+    "giohang_add" => giohangAdd($_GET["id"]),
+    "giohang_delete" => giohangDelete($_GET["id"]),
 
 //     "danhmuc" => danhmucList(),
 //     "danhmuc_add" => danhmucAdd(),
