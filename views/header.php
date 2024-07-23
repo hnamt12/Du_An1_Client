@@ -36,25 +36,15 @@
                                 </a>
                                 <ul class="user-info-menu">
                                     <li>
-                                        <!-- <a href="<?= BASE_URL ?>views\layouts\users\login-register.php">Đăng Nhập </a> -->
-                                    </li>
-                                    <li>
-                                        <a href="<?= BASE_URL ?>?act=user">Tài khoản</a>
+                                        <a href="<?= BASE_URL ?>?act=taikhoan_detail">Tài khoản</a>
                                     </li>
                                     <li>
                                         <a href="index.php?act=giohang">Giỏ hàng</a>
                                     </li>
                                     <li>
-                                        <a href="checkout.html">Check Out</a>
-                                    </li>
-                                    <li>
-                                        <a href="wishlist.html">Wishlist</a>
-                                    </li>
-                                    <li>
-                                        <a href="order-tracking.html">Order tracking</a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html">compare</a>
+                                        <?php if (isset($_SESSION["user"])) { ?>
+                                            <a href="<?= BASE_URL ?>?act=taikhoan_logout">Đăng xuất</a>
+                                        <?php } ?>
                                     </li>
                                 </ul>
                             </li>
