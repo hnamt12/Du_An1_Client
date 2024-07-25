@@ -1,6 +1,6 @@
 <?php
 function giohangList(){
-   $view = 'giohang/giohang' ; 
+   $view = 'giohang/giohang';
    require_once('master.php');
 }
 

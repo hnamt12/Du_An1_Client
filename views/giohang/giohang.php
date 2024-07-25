@@ -1,5 +1,3 @@
-<?php print_r($_SESSION["giohang"]); ?>
-
 <!-- Breadcrumb area Start -->
 <div class="breadcrumb-area bg--white-6 breadcrumb-bg-1 pt--60 pb--70 pt-lg--40 pb-lg--50 pt-md--30 pb-md--40">
     <div class="container-fluid">

@@ -1,9 +1,6 @@
 <?php
-function showAllProducts(){
-   $view = '/layouts/products/showAll' ; 
-   require_once PATH_VIEW . 'layouts/master.php';
+function sanphamDetail(){
+   $sanpham = getOneSanpham($_GET["id"]);
+   $view = 'sanpham/detail';
+   require_once('master.php');
 }
-function showDetail(){
-    $view = '/layouts/products/detail' ; 
-    require_once PATH_VIEW . 'layouts/master.php';
- }

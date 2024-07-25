@@ -21,6 +21,17 @@ function getAllSanpham_Home() {
     }
 }
 
+function getAllSanpham_Tuongtu($id_danhmuc, $id_sanpham) {
+    try {
+        $sql = "SELECT * FROM sanpham WHERE id_danhmuc='$id_danhmuc' AND NOT id_sanpham='$id_sanpham'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
 function getOneSanpham($id_sanpham) {
     try {
         $sql = "SELECT * FROM sanpham WHERE id_sanpham='$id_sanpham'";

@@ -30,6 +30,8 @@ $a = match ($act) {
     "dangnhap" => dangNhap(),
     "dangki" => dangKi(),
 
+    "sanpham_detail" => sanphamDetail(),
+
     "giohang" => giohangList(),
     "giohang_add" => giohangAdd($_GET["id"]),
     "giohang_delete" => giohangDelete($_GET["id"]),
