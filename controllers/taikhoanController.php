@@ -45,28 +45,38 @@ function taikhoanUpdate() {
         $ngaysinh = $_POST["ngaysinh"];
         $diachi = $_POST["diachi"];
 
-        if ($_FILES["hinhanh"]["size"] == 0) {
-            $hinhanh = getOneTaikhoan_Id($_SESSION["user"]["hinhanh"]);
+        $hinhanh = $_FILES["hinhanh"]["name"];
+        $target_dir = PATH_UPLOAD;
+        $target_file = $target_dir . basename($_FILES["hinhanh"]["name"]);
+        if (move_uploaded_file($_FILES["hinhanh"]["tmp_name"], $target_file)) {
+            // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
         } else {
-            $hinhanh = $_FILES["hinhanh"]["name"];
-            $target_dir = PATH_UPLOAD;
-            $target_file = $target_dir . basename($_FILES["hinhanh"]["name"]);
-            if (move_uploaded_file($_FILES["hinhanh"]["tmp_name"], $target_file)) {
-                // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-            } else {
-                // echo "Sorry, there was an error uploading your file.";
-            }
+            // echo "Sorry, there was an error uploading your file.";
         }
         
         updateTaikhoan($id_taikhoan, $matkhau, $hoten, $hinhanh, $sdt, $ngaysinh, $diachi);
 
         $taikhoan = getOneTaikhoan_Id($_SESSION["user"]["id_taikhoan"]);
+        $_SESSION["user"] = $taikhoan;
         $view = 'taikhoan/detail' ;
         require_once('master.php');
     }
 
     $taikhoan = getOneTaikhoan_Id($_SESSION["user"]["id_taikhoan"]);
     $view = 'taikhoan/update' ;
+    require_once('master.php');
+}
+
+function taikhoanForgotPassword() {
+    if (isset($_POST["quenmatkhau"])) {
+        if (quenMatKhau($_POST["ten_taikhoan"], $_POST["email"])) {
+            $error = 'Mật khẩu của bạn là ' . getOneTaikhoan_Tentaikhoan($_POST["ten_taikhoan"])["matkhau"];
+            $view = 'taikhoan/dangnhap' ;
+            require_once('master.php');
+        } else $error = "Tên tài khoản hoặc email không hợp lệ";
+    }
+
+    $view = 'taikhoan/forgotpassword' ;
     require_once('master.php');
 }
 

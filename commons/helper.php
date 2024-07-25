@@ -17,3 +17,9 @@ if (!function_exists("debug")) {
         die;
     }
 }
+
+if (!function_exists("alertMessage")) {
+    function alertMessage($message) {
+        echo "<script>alert($message)</script>";
+    }
+}

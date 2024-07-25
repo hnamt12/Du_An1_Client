@@ -36,6 +36,7 @@ $a = match ($act) {
     
     "taikhoan_detail" => taikhoanDetail(),
     "taikhoan_update" => taikhoanUpdate(),
+    "taikhoan_forgotpassword" => taikhoanForgotPassword(),
     "taikhoan_logout" => taikhoanLogout(),
 };
 

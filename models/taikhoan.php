@@ -44,7 +44,9 @@ function addTaikhoan($ten_taikhoan, $matkhau, $email) {
 
 function updateTaikhoan($id_taikhoan, $matkhau, $hoten, $hinhanh, $sdt, $ngaysinh, $diachi) {
     try {
-        $sql = "UPDATE taikhoan SET matkhau='$matkhau', hoten='$hoten', hinhanh='$hinhanh', sdt='$sdt', ngaysinh='$ngaysinh', diachi='$diachi' WHERE id_taikhoan='$id_taikhoan'";
+        if ($hinhanh == "")
+            $sql = "UPDATE taikhoan SET matkhau='$matkhau', hoten='$hoten', sdt='$sdt', ngaysinh='$ngaysinh', diachi='$diachi' WHERE id_taikhoan='$id_taikhoan'";
+        else $sql = "UPDATE taikhoan SET matkhau='$matkhau', hoten='$hoten', hinhanh='$hinhanh', sdt='$sdt', ngaysinh='$ngaysinh', diachi='$diachi' WHERE id_taikhoan='$id_taikhoan'";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
     } catch (\Exception $e) {
@@ -90,6 +92,21 @@ function checkTaikhoanTontai($ten_taikhoan, $email) {
         $check_email = $stmt->fetch();
 
         if (is_array($check_ten_taikhoan) || is_array($check_email))
+            return true;
+        else return false;
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
+function quenMatKhau($ten_taikhoan, $email) {
+    try {
+        $sql = "SELECT * FROM taikhoan WHERE ten_taikhoan='$ten_taikhoan' AND email='$email'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+        $taikhoan = $stmt->fetch();
+
+        if (is_array($taikhoan))
             return true;
         else return false;
     } catch (\Exception $e) {
