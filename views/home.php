@@ -30,7 +30,6 @@
                     <div class="product-tab tab-style-3">
 
                         <!-- Nav danh mục sản phẩm  -->
-
                         <?php require_once PATH_VIEW . 'components/componentProduct/navDanhMuc.php' ?>
                         <!-- Nav danh mục sản phẩm  -->
 
@@ -78,7 +77,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <a href="<?= BASE_URL ?>?act=products" class="heading-button">View All</a>
+                    <a href="<?= BASE_URL ?>?act=sanpham" class="heading-button">View All</a>
                 </div>
             </div>
         </div>
