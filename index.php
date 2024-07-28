@@ -30,11 +30,18 @@ $a = match ($act) {
     "dangnhap" => dangNhap(),
     "dangki" => dangKi(),
 
+    "danhmuc" => danhmucList(),
+    "danhmuc_detail" => danhmucDetail(),
+
     "sanpham_detail" => sanphamDetail(),
 
     "giohang" => giohangList(),
     "giohang_add" => giohangAdd($_GET["id"]),
-    "giohang_delete" => giohangDelete($_GET["id"]),
+    "giohang_delete" => giohangDelete(),
+
+    "thanhtoan" => thanhtoan(),
+    
+    "lichsu" => lichsuList(),
     
     "taikhoan_detail" => taikhoanDetail(),
     "taikhoan_update" => taikhoanUpdate(),

@@ -42,6 +42,9 @@
                                         <a href="index.php?act=giohang">Giỏ hàng</a>
                                     </li>
                                     <li>
+                                        <a href="index.php?act=lichsu">Lịch sử mua hàng</a>
+                                    </li>
+                                    <li>
                                         <?php if (isset($_SESSION["user"])) { ?>
                                             <a href="<?= BASE_URL ?>?act=taikhoan_logout">Đăng xuất</a>
                                         <?php } ?>

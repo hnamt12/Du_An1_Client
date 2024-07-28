@@ -1,7 +1,7 @@
 <?php
-function getAllSanpham() {
+function getAllThanhtoan() {
     try {
-        $sql = "SELECT * FROM sanpham";
+        $sql = "SELECT * FROM thanhtoan";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -10,45 +10,42 @@ function getAllSanpham() {
     }
 }
 
-function getAllSanpham_Id($id_danhmuc) {
+function getOneThanhtoan($id_thanhtoan) {
     try {
-        $sql = "SELECT * FROM sanpham WHERE id_danhmuc='$id_danhmuc'";
-        $stmt = $GLOBALS["conn"]->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    } catch (\Exception $e) {
-        debug($e);
-    }
-}
-
-function getAllSanpham_Home() {
-    try {
-        $sql = "SELECT * FROM sanpham ORDER BY id_sanpham DESC LIMIT 15";
-        $stmt = $GLOBALS["conn"]->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    } catch (\Exception $e) {
-        debug($e);
-    }
-}
-
-function getAllSanpham_Tuongtu($id_danhmuc, $id_sanpham) {
-    try {
-        $sql = "SELECT * FROM sanpham WHERE id_danhmuc='$id_danhmuc' AND NOT id_sanpham='$id_sanpham'";
-        $stmt = $GLOBALS["conn"]->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    } catch (\Exception $e) {
-        debug($e);
-    }
-}
-
-function getOneSanpham($id_sanpham) {
-    try {
-        $sql = "SELECT * FROM sanpham WHERE id_sanpham='$id_sanpham'";
+        $sql = "SELECT * FROM thanhtoan WHERE id_thanhtoan='$id_thanhtoan'";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         return $stmt->fetch();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
+function addThanhtoan($ten_thanhtoan) {
+    try {
+        $sql = "INSERT INTO thanhtoan(ten_thanhtoan) VALUES ('$ten_thanhtoan')";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
+function updateThanhtoan($id_thanhtoan, $ten_thanhtoan) {
+    try {
+        $sql = "UPDATE thanhtoan SET ten_thanhtoan='$ten_thanhtoan' WHERE id_thanhtoan='$id_thanhtoan'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
+function deleteThanhtoan($id_thanhtoan) {
+    try {
+        $sql = "DELETE FROM thanhtoan WHERE id_thanhtoan='$id_thanhtoan'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
     } catch (\Exception $e) {
         debug($e);
     }
