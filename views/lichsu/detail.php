@@ -1,23 +1,11 @@
-<!-- Breadcrumb area Start -->
-<div class="breadcrumb-area bg--white-6 breadcrumb-bg-1 pt--60 pb--70 pt-lg--40 pb-lg--50 pt-md--30 pb-md--40">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="page-title">Giỏ hàng</h1>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Breadcrumb area End -->
-
 <!-- Main Content Wrapper Start -->
 <div id="content" class="main-content-wrapper">
     <div class="page-content-inner">
         <div class="container">
             <div class="row pt--80 pb--80 pt-md--45 pt-sm--25 pb-md--60 pb-sm--40">
-                
-            <form class="cart-form" action="index.php?act=thanhtoan" method="post">
-                <div class="col-lg-8 mb-md--30">
+
+                <form class="cart-form" action="index.php?act=thanhtoan" method="post">
+                    <div class="col-lg-8 mb-md--30">
                         <div class="row g-0">
                             <div class="col-12">
                                 <div class="table-content table-responsive">
@@ -33,10 +21,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($_SESSION["giohang"] as $id_sanpham) {
-                                                $sanpham = getOneSanpham($id_sanpham) ?>
+                                            <?php foreach ($listCTDH as $ctdh) {
+                                                $sanpham = getOneSanpham($ctdh["id_sanpham"]) ?>
                                                 <tr>
-                                                    <td class="product-remove text-start"><a href="index.php?act=giohang_delete&id=<?= $sanpham["id_sanpham"] ?>"><i class="dl-icon-close"></i></a></td>
                                                     <td class="product-thumbnail text-start">
                                                         <img src="<?= BASE_URL . "uploads/" . getAllAnhsanpham($sanpham["id_sanpham"])[0]["url"] ?>" alt="Product Thumnail">
                                                     </td>
@@ -51,13 +38,13 @@
                                                         </span>
                                                     </td>
                                                     <td class="product-quantity">
-                                                        <div class="quantity">
-                                                            <input type="number" class="quantity-input" name="qty" id="qty-1" value="1" min="1">
+                                                        <div class="product-price-wrapper">
+                                                            <span class="money"><?= $ctdh["soluong"] ?></span>
                                                         </div>
                                                     </td>
                                                     <td class="product-total-price">
                                                         <span class="product-price-wrapper">
-                                                            <span class="money"><strong><?= $sanpham["gia"] ?></strong></span>
+                                                            <span class="money"><strong><?= $sanpham["gia"] * $ctdh["soluong"] ?></strong></span>
                                                         </span>
                                                     </td>
                                                 </tr>
@@ -67,26 +54,48 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="cart-collaterals">
-                        <div class="cart-totals">
-                            <h5 class="mb--15">Cart totals</h5>
-                            <div class="table-content table-responsive">
-                                <table class="table order-table">
-                                    <tbody>
-                                        <tr>
-                                            <th>Tổng tiền</th>
-                                            <td>$<?= giohangTotal($_SESSION["giohang"]) ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cart-collaterals">
+                            <div class="cart-totals">
+                                <h5 class="mb--15">Thông tin đơn hàng</h5>
+                                <div class="table-content table-responsive">
+                                    <table class="table order-table">
+                                        <tbody>
+                                            <tr>
+                                                <th>Mã đơn hàng</th>
+                                                <td><?= $donhang["ma_donhang"] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Trạng thái</th>
+                                                <td><?= $donhang["trangthai"] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tên người nhận</th>
+                                                <td><?= $donhang["ten_nguoinhan"] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Địa chỉ</th>
+                                                <td><?= $donhang["diachi"] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Số điện thoại</th>
+                                                <td><?= $donhang["sdt"] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Hình thức thanh toán</th>
+                                                <td><?= getOneThanhtoan($donhang["id_thanhtoan"])["ten_thanhtoan"] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Ghi chú</th>
+                                                <td><?= $donhang["ghichu"] ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        <input class="btn btn-fullwidth btn-style-1" type="submit" name="thanhtoan" value="Thanh toán">
                     </div>
-                </div>
-                
                 </form>
             </div>
         </div>
