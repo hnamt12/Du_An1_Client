@@ -37,7 +37,9 @@
                                             <tr>
                                                 <td class="text-start">
                                                     <span class="product-price-wrapper">
-                                                        <span class="money"><?= $donhang["ma_donhang"] ?></span>
+                                                        <a href="index.php?act=lichsu_chitiet&id=<?= $donhang["id_donhang"] ?>">
+                                                            <span class="money"><?= $donhang["ma_donhang"] ?></span>
+                                                        </a>
                                                     </span>
                                                 </td>
                                                 <td class="product-price">
@@ -63,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <!-- <div class="col-lg-4">
                     <div class="cart-collaterals">
                         <div class="cart-totals">
                             <h5 class="mb--15">Cart totals</h5>
@@ -200,7 +202,7 @@
                             Proceed To Checkout
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

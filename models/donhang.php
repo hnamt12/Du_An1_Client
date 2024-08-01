@@ -45,7 +45,7 @@ function getAllChiTietDonHang($id_donhang) {
 
 function addDonhang($ten_nguoinhan, $diachi, $sdt, $id_thanhtoan, $ghichu, $listId_sanpham) {
     $id_taikhoan = $_SESSION["user"]["id_taikhoan"];
-    $ma_donhang = $id_taikhoan . date("YmdHisu");
+    $ma_donhang = $id_taikhoan . date("YmdHis");
 
     try {
         $sql = "INSERT INTO donhang(ma_donhang, id_taikhoan, ten_nguoinhan, diachi, sdt, id_thanhtoan, ghichu) 
@@ -53,6 +53,7 @@ function addDonhang($ten_nguoinhan, $diachi, $sdt, $id_thanhtoan, $ghichu, $list
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         addChitietdonhang($listId_sanpham);
+        unset($_SESSION["giohang"]);
     } catch (\Exception $e) {
         debug($e);
     }

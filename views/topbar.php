@@ -17,7 +17,7 @@
                                                 <span class="mm-text">Shop</span>
                                             </a>
                                         </li>
-                                        <li class="mainmenu__item menu-item-has-children has-children">
+                                        <!-- <li class="mainmenu__item menu-item-has-children has-children">
                                             <a href="#" class="mainmenu__link">
                                                 <span class="mm-text">Pages</span>
                                             </a>
@@ -131,7 +131,7 @@
                                             <a href="shop-instagram.html" class="mainmenu__link">
                                                 <span class="mm-text">New Look</span>
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </nav>
                                 <!-- Main Navigation End Here -->
