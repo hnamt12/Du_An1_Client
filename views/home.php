@@ -75,21 +75,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <a href="<?= BASE_URL ?>?act=products" class="heading-button">View All</a>
-                </div>
-            </div>
         </div>
     </section>
     <!-- Product tab area End Here -->
-
-    <!-- Instagram Feed area Start Here -->
-    <?php require_once PATH_VIEW  . 'components/componentProduct/instagramfeed.php' ?>
-    <!-- Instagram Feed area End Here -->
-
-    <!-- Method area Start Here -->
-    <?php require_once PATH_VIEW . 'components/methodArena.php' ?>
-    <!-- Method area End Here -->
 
 </div>

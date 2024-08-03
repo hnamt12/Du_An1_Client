@@ -13,7 +13,6 @@
                                         <thead>
                                             <tr>
                                                 <th>&nbsp;</th>
-                                                <th>&nbsp;</th>
                                                 <th class="text-start">Tên sản phẩm</th>
                                                 <th class="text-center">Giá</th>
                                                 <th class="text-center">Số lượng</th>
@@ -25,12 +24,10 @@
                                                 $sanpham = getOneSanpham($ctdh["id_sanpham"]) ?>
                                                 <tr>
                                                     <td class="product-thumbnail text-start">
-                                                        <img src="<?= BASE_URL . "uploads/" . getAllAnhsanpham($sanpham["id_sanpham"])[0]["url"] ?>" alt="Product Thumnail">
+                                                        <img src="<?= PATH_UPLOAD . getAllAnhsanpham($sanpham["id_sanpham"])[0]["url"] ?>" alt="Product Thumnail">
                                                     </td>
                                                     <td class="product-name text-start wide-column">
-                                                        <h3>
-                                                            <a href="product-details.html"><?= $sanpham["ten_sanpham"] ?></a>
-                                                        </h3>
+                                                        <a href="index.php?act=sanpham_detail&id=<?= $sanpham["id_sanpham"] ?>"><?= $sanpham["ten_sanpham"] ?></a>
                                                     </td>
                                                     <td class="product-price">
                                                         <span class="product-price-wrapper">
