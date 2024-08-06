@@ -15,9 +15,8 @@
     <div class="page-content-inner">
         <div class="container">
             <div class="row pt--80 pb--80 pt-md--45 pt-sm--25 pb-md--60 pb-sm--40">
-                
-            <form class="cart-form" action="index.php?act=thanhtoan" method="post">
-                <div class="col-lg-8 mb-md--30">
+                <form class="cart-form" action="index.php?act=thanhtoan" method="post">
+                    <div class="col-lg-8 mb-md--30">
                         <div class="row g-0">
                             <div class="col-12">
                                 <div class="table-content table-responsive">
@@ -38,24 +37,22 @@
                                                 <tr>
                                                     <td class="product-remove text-start"><a href="index.php?act=giohang_delete&id=<?= $sanpham["id_sanpham"] ?>"><i class="dl-icon-close"></i></a></td>
                                                     <td class="product-thumbnail text-start">
-                                                        <img src="<?= BASE_URL . "uploads/" . getAllAnhsanpham($sanpham["id_sanpham"])[0]["url"] ?>" alt="Product Thumnail">
+                                                        <img src="<?= PATH_UPLOAD . getAllAnhsanpham($sanpham["id_sanpham"])[0]["url"] ?>" alt="Product Thumnail">
                                                     </td>
-                                                    <td class="product-name text-start wide-column">
-                                                        <h3>
-                                                            <a href="product-details.html"><?= $sanpham["ten_sanpham"] ?></a>
-                                                        </h3>
+                                                    <td class="product-name text-start wide-column align-middle">
+                                                        <a href="product-details.html"><?= $sanpham["ten_sanpham"] ?></a>
                                                     </td>
-                                                    <td class="product-price">
+                                                    <td class="product-price align-middle">
                                                         <span class="product-price-wrapper">
                                                             <span class="money"><?= $sanpham["gia"] ?></span>
                                                         </span>
                                                     </td>
-                                                    <td class="product-quantity">
+                                                    <td class="product-quantity align-middle">
                                                         <div class="quantity">
                                                             <input type="number" class="quantity-input" name="qty" id="qty-1" value="1" min="1">
                                                         </div>
                                                     </td>
-                                                    <td class="product-total-price">
+                                                    <td class="product-total-price align-middle">
                                                         <span class="product-price-wrapper">
                                                             <span class="money"><strong><?= $sanpham["gia"] ?></strong></span>
                                                         </span>
@@ -67,26 +64,25 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="cart-collaterals">
-                        <div class="cart-totals">
-                            <h5 class="mb--15">Cart totals</h5>
-                            <div class="table-content table-responsive">
-                                <table class="table order-table">
-                                    <tbody>
-                                        <tr>
-                                            <th>Tổng tiền</th>
-                                            <td>$<?= giohangTotal($_SESSION["giohang"]) ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <input class="btn btn-fullwidth btn-style-1" type="submit" name="thanhtoan" value="Thanh toán">
                     </div>
-                </div>
-                
+                    <div class="col-lg-4">
+                        <div class="cart-collaterals">
+                            <div class="cart-totals">
+                                <h5 class="mb--15">Cart totals</h5>
+                                <div class="table-content table-responsive">
+                                    <table class="table order-table">
+                                        <tbody>
+                                            <tr>
+                                                <th>Tổng tiền</th>
+                                                <td>$<?= giohangTotal($_SESSION["giohang"]) ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <input class="btn btn-fullwidth btn-style-1" type="submit" name="thanhtoan" value="Thanh toán">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
