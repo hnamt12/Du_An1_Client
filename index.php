@@ -6,44 +6,48 @@ session_start();
 require_once "./commons/env.php";
 require_once "./commons/helper.php";
 require_once "./commons/connect-db.php";
-require_once "./commons/check-login.php";
+// require_once "./commons/check-login.php";
 
 // Require files trong controllers và models
 require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
+
+$arrRouteNeedAuth = [
+    "giohang",
+    "giohang_add",
+    "giohang_delete",
+];
+
+$error = "";
+
+if (empty($_SESSION["giohang"])) $_SESSION["giohang"] = [];
 
 // Điều hướng
 $act = $_GET["act"] ?? "/";
 $a = match ($act) {
     "/" => homeIndex(),
 
-//     "danhmuc" => danhmucList(),
-//     "danhmuc_add" => danhmucAdd(),
-//     "danhmuc_update" => danhmucUpdate(),
-//     "danhmuc_delete" => danhmucDelete(),
+    "dangnhap" => dangNhap(),
+    "dangki" => dangKi(),
 
-//     "sanpham" => sanphamList(),
-//     "sanpham_detail" => sanphamDetail(),
-//     "sanpham_add" => sanphamAdd(),
-//     "sanpham_update" => sanphamUpdate(),
-//     "sanpham_delete" => sanphamDelete(),
+    "danhmuc" => danhmucList(),
+    "danhmuc_detail" => danhmucDetail(),
 
-//     "taikhoan" => taikhoanList(),
-//     "taikhoan_detail" => taikhoanDetail(),
-//     "taikhoan_delete" => taikhoanDelete(),
+    "sanpham_detail" => sanphamDetail(),
 
-//     "binhluan" => binhluanList(),
-//     "binhluanDelete" => binhluanDelete(),
-//     "binhluan_hide" => binhluanHide(),
-//     "binhluan_unhide" => binhluanUnhide(),
+    "giohang" => giohangList(),
+    "giohang_add" => giohangAdd($_GET["id"]),
+    "giohang_delete" => giohangDelete(),
 
-//     "donhang" => donhangList(),
-//     "donhang_detail" => donhangDetail(),
+    "thanhtoan" => thanhtoan(),
     
-//     "thanhtoan" => thanhtoanList(),
-//     "thanhtoan_add" => thanhtoanAdd(),
-//     "thanhtoan_update" => thanhtoanUpdate(),
-//     "thanhtoan_delete" => thanhtoanDelete(),
+    "lichsu" => lichsuList(),
+    "lichsu_chitiet" => lichsuDetail(),
+    
+    "taikhoan_detail" => taikhoanDetail(),
+    "taikhoan_update" => taikhoanUpdate(),
+    "taikhoan_forgotpassword" => taikhoanForgotPassword(),
+    "taikhoan_logout" => taikhoanLogout(),
 };
 
 include_once "master.php";

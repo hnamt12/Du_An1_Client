@@ -1,12 +1,15 @@
 <?php
+function sanphamDetail(){
+   $sanpham = getOneSanpham($_GET["id"]);
 
-function showAllProducts(){
-   $view = '/layouts/products/showAll' ; 
+   if (isset($_POST["submit"])) {
+      $id_sanpham = $sanpham["id_sanpham"];
+      $id_taikhoan = $_SESSION["user"]["id_taikhoan"];
+      $noidung = $_POST["noidung"];
+      
+      binhluanAdd($id_sanpham, $id_taikhoan, $noidung);
+   }
 
-   require_once PATH_VIEW . 'layouts/master.php';
+   $view = 'sanpham/detail';
+   require_once('master.php');
 }
-function showDetail(){
-    $view = '/layouts/products/detail' ; 
- 
-    require_once PATH_VIEW . 'layouts/master.php';
- }
