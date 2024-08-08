@@ -92,7 +92,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr class="order-total">
-                                            <th>Order Total</th>
+                                            <th>Tổng tiền</th>
                                             <td class="text-end"><span class="order-total-ammount">$<?= $tongtien ?></span>
                                             </td>
                                         </tr>

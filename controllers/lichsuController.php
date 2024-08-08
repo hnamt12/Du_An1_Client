@@ -6,7 +6,15 @@ function lichsuList(){
 }
 
 function lichsuDetail(){
-    $donhang = getOneDonhang($_GET["id"]);
+    $id_donhang = $_GET["id"];
+
+    if (isset($_POST["confirmThanhtoan"]))
+        changeStatus("thanhtoan", $id_donhang);
+
+    if (isset($_POST["confirmGiaohang"]))
+        changeStatus("giaohang", $id_donhang);
+
+    $donhang = getOneDonhang($id_donhang);
     $listCTDH = getAllChiTietDonHang($donhang["id_donhang"]);
     $view = 'lichsu/detail' ;
     require_once('master.php');
