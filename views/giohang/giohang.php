@@ -27,7 +27,7 @@
                                                 <th>&nbsp;</th>
                                                 <th class="text-start">Tên sản phẩm</th>
                                                 <th class="text-center">Giá</th>
-                                                <th class="text-center">Số lượng</th>
+                                                <!-- <th class="text-center">Số lượng</th> -->
                                                 <th class="text-center">Tổng tiền</th>
                                             </tr>
                                         </thead>
@@ -47,11 +47,11 @@
                                                             <span class="money"><?= $sanpham["gia"] ?></span>
                                                         </span>
                                                     </td>
-                                                    <td class="product-quantity align-middle">
+                                                    <!-- <td class="product-quantity align-middle">
                                                         <div class="quantity">
                                                             <input type="number" class="quantity-input" name="qty" id="qty-1" value="1" min="1">
                                                         </div>
-                                                    </td>
+                                                    </td> -->
                                                     <td class="product-total-price align-middle">
                                                         <span class="product-price-wrapper">
                                                             <span class="money"><strong><?= $sanpham["gia"] ?></strong></span>

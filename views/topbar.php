@@ -13,8 +13,8 @@
                                             </a>
                                         </li>
                                         <li class="mainmenu__item menu-item-has-children">
-                                            <a href="shop-sidebar.html" class="mainmenu__link">
-                                                <span class="mm-text">Shop</span>
+                                            <a href="index.php?act=sanpham" class="mainmenu__link">
+                                                <span class="mm-text">Sản phẩm</span>
                                             </a>
                                         </li>
                                         <!-- <li class="mainmenu__item menu-item-has-children has-children">

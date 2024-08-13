@@ -23,7 +23,7 @@ function getAllSanpham_Id($id_danhmuc) {
 
 function getAllSanpham_Home() {
     try {
-        $sql = "SELECT * FROM sanpham ORDER BY id_sanpham DESC LIMIT 15";
+        $sql = "SELECT * FROM sanpham ORDER BY id_sanpham LIMIT 15";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -49,6 +49,19 @@ function getOneSanpham($id_sanpham) {
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         return $stmt->fetch();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
+function tangLuotXemSanPham($id_sanpham) {
+    try {
+        $sanpham = getOneSanpham($id_sanpham);
+        $luotxem = $sanpham["luotxem"] + 1;
+
+        $sql = "UPDATE sanpham SET luotxem='$luotxem' WHERE id_sanpham='$id_sanpham'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
     } catch (\Exception $e) {
         debug($e);
     }

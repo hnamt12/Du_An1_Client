@@ -1,4 +1,11 @@
 <?php
+function sanphamList(){
+   $listSanpham = getAllSanpham();
+
+   $view = 'sanpham/list';
+   require_once('master.php');
+}
+
 function sanphamDetail(){
    $sanpham = getOneSanpham($_GET["id"]);
 

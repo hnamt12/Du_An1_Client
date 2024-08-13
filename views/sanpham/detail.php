@@ -23,9 +23,9 @@
                         <p class="product-short-description mb--45 mb-sm--20"><?= $sanpham["mota"] ?></p>
                         <form action="#" class="form--action mb--30 mb-sm--20">
                             <div class="product-action flex-row align-items-center">
-                                <div class="quantity">
+                                <!-- <div class="quantity">
                                     <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
-                                </div>
+                                </div> -->
                                 <a href="index.php?act=giohang_add&id=<?= $sanpham["id_sanpham"] ?>">
                                     <button type="button" class="btn btn-style-1 btn-large add-to-cart">
                                         Thêm vào giỏ hàng
@@ -153,3 +153,5 @@
         </div>
     </div>
 </div>
+
+<?= tangLuotXemSanPham($sanpham["id_sanpham"]) ?>

@@ -16,6 +16,12 @@ $arrRouteNeedAuth = [
     "giohang",
     "giohang_add",
     "giohang_delete",
+    "thanhtoan",
+    "lichsu",
+    "lichsu_chitiet",
+    "taikhoan_detail",
+    "taikhoan_update",
+    "taikhoan_logout",
 ];
 
 $error = "";
@@ -24,31 +30,37 @@ if (empty($_SESSION["giohang"])) $_SESSION["giohang"] = [];
 
 // Điều hướng
 $act = $_GET["act"] ?? "/";
-$a = match ($act) {
-    "/" => homeIndex(),
 
-    "dangnhap" => dangNhap(),
-    "dangki" => dangKi(),
-
-    "danhmuc" => danhmucList(),
-    "danhmuc_detail" => danhmucDetail(),
-
-    "sanpham_detail" => sanphamDetail(),
-
-    "giohang" => giohangList(),
-    "giohang_add" => giohangAdd($_GET["id"]),
-    "giohang_delete" => giohangDelete(),
-
-    "thanhtoan" => thanhtoan(),
+if (redirectToLogin($act, $arrRouteNeedAuth)) {
+    dangNhap();
+} else {
+    $a = match ($act) {
+        "/" => homeIndex(),
     
-    "lichsu" => lichsuList(),
-    "lichsu_chitiet" => lichsuDetail(),
+        "dangnhap" => dangNhap(),
+        "dangki" => dangKi(),
     
-    "taikhoan_detail" => taikhoanDetail(),
-    "taikhoan_update" => taikhoanUpdate(),
-    "taikhoan_forgotpassword" => taikhoanForgotPassword(),
-    "taikhoan_logout" => taikhoanLogout(),
-};
+        "danhmuc" => danhmucList(),
+        "danhmuc_detail" => danhmucDetail(),
+    
+        "sanpham" => sanphamList(),
+        "sanpham_detail" => sanphamDetail(),
+    
+        "giohang" => giohangList(),
+        "giohang_add" => giohangAdd($_GET["id"]),
+        "giohang_delete" => giohangDelete(),
+    
+        "thanhtoan" => thanhtoan(),
+        
+        "lichsu" => lichsuList(),
+        "lichsu_chitiet" => lichsuDetail(),
+        
+        "taikhoan_detail" => taikhoanDetail(),
+        "taikhoan_update" => taikhoanUpdate(),
+        "taikhoan_forgotpassword" => taikhoanForgotPassword(),
+        "taikhoan_logout" => taikhoanLogout(),
+    };
+}
 
 include_once "master.php";
 

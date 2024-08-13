@@ -19,12 +19,12 @@
                                 <div class="form__group">
                                     <input type="submit" name="dangnhap" value="Đăng nhập" class="btn btn-submit btn-style-1">
                                 </div>
-                                <div class="form__group">
+                                <!-- <div class="form__group">
                                     <label class="form__label checkbox-label" for="store_session">
                                         <input type="checkbox" name="store_session" id="store_session">
                                         <span>Ghi nhớ đăng nhập</span>
                                     </label>
-                                </div>
+                                </div> -->
                             </div>
                             <a class="forgot-pass" href="index.php?act=taikhoan_forgotpassword">Quên mật khẩu</a> <br>
                             <a class="forgot-pass" href="index.php?act=dangki">Đăng kí</a> 
